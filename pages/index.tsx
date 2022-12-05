@@ -1,6 +1,10 @@
 import { Pages } from '../components/shared/Pages';
+import { useMorphological } from '../hooks/useMorphological';
 
 export default function Home() {
+  useMorphological({
+    text: 'vol9ハッカソンで優勝するために課題解決を助けるwebサービスを作っています',
+  });
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
