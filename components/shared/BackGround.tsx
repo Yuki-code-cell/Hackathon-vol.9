@@ -7,10 +7,10 @@ export const BackGround = () => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
-  //   const particleLoaded = useCallback(async () => {
-  //     const c = document.querySelector('canvas.particles-canvas');
-  //     c?.removeAttribute('style');
-  //   }, []);
+  // const particleLoaded = useCallback(async () => {
+  //   const c = document.querySelector('canvas.particles-canvas');
+  //   c?.removeAttribute('style');
+  // }, []);
   return (
     <Particles
       id="tsparticles"

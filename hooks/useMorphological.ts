@@ -3,14 +3,6 @@ type TProps = {
   text: string;
 };
 export const useMorphological = ({ text }: TProps) => {
-  // return new Promise((resolve, reject) => {
-  //     builder((err:any, tokenizer:any) => {
-  //       if (err) {
-  //         reject(err);
-  //       }
-  //       resolve(tokenizer);
-  //     });
-  //   });
   builder({ dicPath: 'dict' }).build((err: any, tokenizer: any) => {
     if (err) {
       console.log(err);
