@@ -1,4 +1,4 @@
-import { Pages } from '../components/shared/pages';
+import { Pages } from '../components/shared/Pages';
 
 export default function Home() {
   return (
