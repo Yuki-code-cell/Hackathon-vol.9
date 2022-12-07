@@ -2,13 +2,21 @@ import { builder, IpadicFeatures, TokenizerBuilder } from 'kuromoji';
 type TProps = {
   text: string;
 };
-export const useMorphological = ({ text }: TProps) => {
-  builder({ dicPath: 'dict' }).build((err: any, tokenizer: any) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const tokens = tokenizer.tokenize(text);
-      console.log(tokens);
-    }
-  });
+// const createMorphologicalTexts = async (text: string): Promise<any> => {
+builder({ dicPath: '/dict' }).build(async (err: any, tokenizer: any) => {
+  let res;
+  if (err) {
+    throw new Error('kuromoji');
+  } else {
+    const tokens = await tokenizer.tokenize(text).filter((x: any) => {
+      return x.pos === '名詞';
+    });
+    res = tokens;
+  }
+  console.log(res);
+  return res;
+});
+// };
+export const useMorphological = async ({ text }: TProps): Promise<any> => {
+  builder({ dicPath: '/dict' }).build();
 };

@@ -1,10 +1,31 @@
 import { Pages } from '../components/shared/Pages';
 import { useMorphological } from '../hooks/useMorphological';
-
+import { useQuery } from 'react-query';
+import { builder } from 'kuromoji';
+import { useState } from 'react';
 export default function Home() {
-  useMorphological({
-    text: 'vol9ハッカソンで優勝するために課題解決を助けるwebサービスを作っています',
+  const [t, setT] = useState();
+  const { data, isLoading, isError } = useQuery('texts', async () => {
+    builder({ dicPath: '/dict' }).build((err: any, tokenizer: any) => {
+      if (err) {
+        throw new Error('kuromoji');
+      } else {
+        setT(
+          tokenizer.tokenize('私は人間ですs').filter((x: any) => {
+            return x.pos === '名詞';
+          })
+        );
+      }
+    });
   });
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+
+  if (isError) {
+    return <span>Error</span>;
+  }
+  console.log(t);
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">

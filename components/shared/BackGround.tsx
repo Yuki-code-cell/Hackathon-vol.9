@@ -1,9 +1,10 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
+import React from 'react';
 
-export const BackGround = () => {
+export const BackGround = React.memo(() => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
@@ -93,4 +94,5 @@ export const BackGround = () => {
       }}
     />
   );
-};
+});
+BackGround.displayName = 'MyApp';
