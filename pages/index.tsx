@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Pages } from '../components/shared/Pages';
 import { useMorphological } from '../hooks/useMorphological';
 export default function Home() {

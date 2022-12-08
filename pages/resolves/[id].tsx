@@ -27,11 +27,9 @@ const Resolve = () => {
     },
   ];
   return (
-    <div>
-      <Pages>
-        <Faqs faqs={mock} />
-      </Pages>
-    </div>
+    <Pages className="grid grid-cols-3 my-10">
+      <Faqs faqs={mock} className="mx-5" />
+    </Pages>
   );
 };
 export default Resolve;

@@ -59,7 +59,7 @@ export const BackGround = React.memo(() => {
           },
           move: {
             enable: true,
-            speed: 6,
+            speed: 10,
             direction: 'none',
             out_mode: 'out',
           },

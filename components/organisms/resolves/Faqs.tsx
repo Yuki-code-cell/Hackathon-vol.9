@@ -3,11 +3,12 @@ import { Faq } from './Faq';
 
 type TProps = {
   faqs: TFaq[];
+  className?: string;
 };
-export const Faqs = ({ faqs }: TProps) => {
+export const Faqs = ({ faqs, className }: TProps) => {
   const faqColor = (ans: string) => (ans ? 'bg-green-300' : 'bg-red-300');
   return (
-    <div className=" bg-white rounded-md w-3/5 my-10 shadow-2xl border-4 ml-auto mr-5">
+    <div className={`${className} bg-white rounded-md shadow-2xl border-4`}>
       {faqs.map((faq, index) => {
         return (
           <Faq
