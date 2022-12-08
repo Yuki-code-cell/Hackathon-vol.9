@@ -11,14 +11,25 @@ type TProps = {
 export function useWikipedia({ term }: TProps) {
   const [results, setResults] = useState([]);
 
-  useEffect(() => {
-    const endpoint = 'https://en.wikipedia.org/w/api.php';
-    const params = {
-      action: 'query',
-      list: 'search',
-      srsearch: term,
-      format: 'json',
-    };
+  const wikiFetch = async (inputValue:any) => { //asyncで非同期処理だと宣言する
+    const fetchValue = fetch(`https://ja.wikipedia.org/w/api.php?format=json&action=query&origin=*&list=search&srlimit=45&srsearch=${inputValue}`, {
+      method: "GET"
+    })
+      .then((value) => {
+        return value.json(); //wikipediaからのデータをJSON形式に変換
+      })
+      .catch(() => {
+        alert("wikipediaにうまくアクセスできないようです、、");
+      });
+
+  // useEffect(() => {
+  //   const endpoint = 'https://en.wikipedia.org/w/api.php';
+  //   const params = {
+  //     action: 'query',
+  //     list: 'search',
+  //     srsearch: term,
+  //     format: 'json',
+  //   };
 
     fetch(endpoint, {
       method: 'GET',
