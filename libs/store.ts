@@ -1,15 +1,16 @@
 import create from 'zustand';
-type Tokenizer = {
-  text: string;
-  changeText: (text: string) => void;
-  tokenize: () => void;
+import { IpadicFeatures } from '../types/Resolve';
+type MorphologicalStore = {
+  tokenizedTexts: IpadicFeatures[];
+  changeTokenizedTexts: (input: IpadicFeatures[]) => void;
 };
 
-export const useTokenizer = create<Tokenizer>((set) => ({
-  text: '',
-  changeText: () =>
-    set((input) => {
-      return { text: input.text };
+export const useMorphologicalStore = create<MorphologicalStore>((set) => ({
+  tokenizedTexts: [],
+  changeTokenizedTexts: (tokenized: IpadicFeatures[]) =>
+    set(() => {
+      return {
+        tokenizedTexts: tokenized,
+      };
     }),
-  tokenize: () => set({ text: '' }),
 }));

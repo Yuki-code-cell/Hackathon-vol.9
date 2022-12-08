@@ -1,24 +1,27 @@
 import { builder } from 'kuromoji';
-import { useEffect, useState } from 'react';
-import { TTokenizer } from '../types/Resolve';
+import type { Tokenizer, IpadicFeatures } from 'kuromoji';
+import { useEffect } from 'react';
+import { useMorphologicalStore } from '../libs/store';
 type TProps = {
   text: string;
 };
-export const useMorphological = ({ text }: TProps): TTokenizer[] => {
-  const [tokenizedText, setTokenizedText] = useState<TTokenizer[]>([]);
+export const useMorphological = ({ text }: TProps): IpadicFeatures[] => {
+  const { tokenizedTexts, changeTokenizedTexts } = useMorphologicalStore();
   useEffect(() => {
-    builder({ dicPath: '/dict' }).build(async (err: any, tokenizer: any) => {
-      try {
-        const filteredTokens = await tokenizer
-          .tokenize(text)
-          .filter((x: any) => {
-            return x.pos === '名詞';
-          });
-        setTokenizedText(filteredTokens);
-      } catch (error) {
-        throw new Error(err);
+    builder({ dicPath: '/dict' }).build(
+      (err: Error, tokenizer: Tokenizer<IpadicFeatures>) => {
+        try {
+          const filteredTokens = tokenizer
+            .tokenize(text)
+            .filter((x: IpadicFeatures) => {
+              return x.pos === '名詞';
+            });
+          changeTokenizedTexts(filteredTokens);
+        } catch (error) {
+          throw new Error(err.message);
+        }
       }
-    });
+    );
   }, [text]);
-  return tokenizedText;
+  return tokenizedTexts;
 };

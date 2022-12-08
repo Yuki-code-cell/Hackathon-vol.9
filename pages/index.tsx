@@ -1,7 +1,10 @@
 import { Pages } from '../components/shared/Pages';
 import { useMorphological } from '../hooks/useMorphological';
+import { useMorphologicalStore } from '../libs/store';
 export default function Home() {
-  console.log(useMorphological({ text: 'これは新発見です' }));
+  useMorphological({ text: 'これは新発見です' });
+  const { tokenizedTexts } = useMorphologicalStore();
+
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
