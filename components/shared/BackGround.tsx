@@ -1,16 +1,17 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import type { Engine } from 'tsparticles-engine';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
+import React from 'react';
 
-export const BackGround = () => {
+export const BackGround = React.memo(() => {
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine);
   }, []);
-  //   const particleLoaded = useCallback(async () => {
-  //     const c = document.querySelector('canvas.particles-canvas');
-  //     c?.removeAttribute('style');
-  //   }, []);
+  // const particleLoaded = useCallback(async () => {
+  //   const c = document.querySelector('canvas.particles-canvas');
+  //   c?.removeAttribute('style');
+  // }, []);
   return (
     <Particles
       id="tsparticles"
@@ -58,7 +59,7 @@ export const BackGround = () => {
           },
           move: {
             enable: true,
-            speed: 6,
+            speed: 2,
             direction: 'none',
             out_mode: 'out',
           },
@@ -93,4 +94,5 @@ export const BackGround = () => {
       }}
     />
   );
-};
+});
+BackGround.displayName = 'MyApp';

@@ -3,13 +3,14 @@ import { BackGround } from './BackGround';
 import { Header } from './Header';
 type TProps = {
   children: ReactNode;
+  className?: string;
 };
-export const Pages = ({ children }: TProps) => {
+export const Pages = ({ children, className }: TProps) => {
   return (
-    <div>
+    <>
       <Header />
-      {children}
+      <div className={`${className}`}>{children}</div>
       <BackGround />
-    </div>
+    </>
   );
 };
