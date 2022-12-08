@@ -1,6 +1,7 @@
 import { Pages } from '../components/shared/Pages';
-
+import { useWikipedia } from '../hooks/useWikipedia';
 export default function Home() {
+  useWikipedia({ term: 'バナナ' });
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
