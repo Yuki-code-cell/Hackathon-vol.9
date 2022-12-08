@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { Faqs } from '../../components/organisms/resolves/Faqs';
+import { Helper } from '../../components/organisms/resolves/Helper';
 import { Pages } from '../../components/shared/Pages';
 const Resolve = () => {
   const router = useRouter();
@@ -28,7 +29,8 @@ const Resolve = () => {
   ];
   return (
     <Pages className="grid grid-cols-3 my-10">
-      <Faqs faqs={mock} className="mx-5" />
+      <Helper />
+      <Faqs faqs={mock} className="mx-5 col-span-2" />
     </Pages>
   );
 };
