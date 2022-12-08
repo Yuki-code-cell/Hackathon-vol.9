@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { SideBar } from '../../components/organisms/SideBar';
+import { Faqs } from '../../components/organisms/resolves/Faqs';
 import { Pages } from '../../components/shared/Pages';
 const Resolve = () => {
   const router = useRouter();
@@ -21,11 +21,15 @@ const Resolve = () => {
       question: 'githubのソースコードなど一次ソースを読みましたか？',
       answer: '',
     },
+    {
+      question: '解決できましたか？',
+      answer: '',
+    },
   ];
   return (
     <div>
       <Pages>
-        <SideBar faqs={mock} />
+        <Faqs faqs={mock} />
       </Pages>
     </div>
   );
