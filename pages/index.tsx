@@ -1,7 +1,7 @@
 import { Pages } from '../components/shared/Pages';
-import { useWikipedia } from '../hooks/useWikipedia';
+import { useWikiFetch } from '../hooks/useWikipedia';
 export default function Home() {
-  useWikipedia({ term: 'バナナ' });
+  console.log(useWikiFetch({ inputValue: 'バナナ' }));
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
