@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Pages } from '../components/shared/Pages';
 import { useMorphological } from '../hooks/useMorphological';
 export default function Home() {
+  // useMorphological({ text: 'aaa', setTokenizer: () => {} });
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
