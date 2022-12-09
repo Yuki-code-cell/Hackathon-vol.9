@@ -1,5 +1,14 @@
+import { useQuery } from 'react-query';
+import { getFlow } from '../apis/flows/show';
 import { Pages } from '../components/shared/Pages';
 export default function Home() {
+  const { data, isLoading } = useQuery('myflows', () =>
+    getFlow({ userId: 'da0cb779-4822-4f5c-a2f5-79adfc15671e' })
+  );
+  if (isLoading) {
+    return <div>ローディング中です</div>;
+  }
+  console.log(data);
   return (
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">

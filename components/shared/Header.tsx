@@ -1,18 +1,11 @@
-import { useEffect, useState } from 'react';
-import { supabase } from '../../libs/supabase';
+import { useQuery } from 'react-query';
+import { session } from '../../apis/user/session';
 import { signInWithGoogle } from '../../util/Auth/signin';
 import { signout } from '../../util/Auth/signout';
 import { Button } from '../atoms/Button';
 
 export const Header = () => {
-  const [data, setData] = useState('' as any);
-  useEffect(() => {
-    const session = async () => {
-      const res = await supabase.auth.getSession();
-      setData(res.data.session?.user);
-    };
-    session();
-  }, []);
+  const { data } = useQuery('user', () => session());
   return (
     <div className="w-full h-20 flex items-center backdrop-blur-3xl">
       <p className="text-3xl font-bold p-5 ">resolver</p>
