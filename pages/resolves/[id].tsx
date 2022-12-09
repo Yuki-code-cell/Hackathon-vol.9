@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { Faqs } from '../../components/organisms/resolves/Faqs';
-import { Helper } from '../../components/organisms/resolves/Helper';
+import { Advices } from '../../components/organisms/resolves/Advices';
 import { Pages } from '../../components/shared/Pages';
 const Resolve = () => {
   const router = useRouter();
@@ -20,7 +20,7 @@ const Resolve = () => {
     },
     {
       question: 'githubのソースコードなど一次ソースを読みましたか？',
-      answer: '',
+      answer: 'A型、典型的、人々、星',
     },
     {
       question: '解決できましたか？',
@@ -29,7 +29,7 @@ const Resolve = () => {
   ];
   return (
     <Pages className="grid grid-cols-3 my-10">
-      <Helper />
+      <Advices />
       <Faqs faqs={mock} className="mx-5 col-span-2" />
     </Pages>
   );
