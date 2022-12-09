@@ -1,11 +1,14 @@
 import { Pages } from '../components/shared/Pages';
 import { useWikiFetch } from '../hooks/useWikipedia';
 import { useMorphological } from '../hooks/useMorphological';
-import { useMorphologicalStore } from '../libs/store';
+import { useMorphologicalStore, useWikipediaStore } from '../libs/store';
 export default function Home() {
-  console.log(useWikiFetch({ inputValue: 'バナナ' }));
   useMorphological({ text: 'これは新発見です' });
   const { tokenizedTexts } = useMorphologicalStore();
+  // useWikiFetch({ inputValue: tokenizedTexts[0].surface_form });
+  const { wikipediaInfo } = useWikipediaStore();
+  console.log(tokenizedTexts, 'tokenizedTexts');
+  console.log(wikipediaInfo, 'wikipediaInfo');
 
   return (
     <Pages>
