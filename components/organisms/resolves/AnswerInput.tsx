@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Morphologicalize } from '../../../util/morphologicalize';
+import { useMorphologicalStore, useWikipediaStore } from '../../../libs/store';
 import { Button } from '../../atoms/Button';
 type TProps = {
   answer: string;
@@ -6,6 +8,8 @@ type TProps = {
 export const AnswerInput = ({ answer }: TProps) => {
   const [text, setText] = useState(answer);
   const [isEdit, setIsEdit] = useState(answer ? true : false);
+  const { changeTokenizedTexts } = useMorphologicalStore();
+  const { resetWikiInfo } = useWikipediaStore();
   return (
     <div className="py-3">
       {isEdit ? (
@@ -22,7 +26,14 @@ export const AnswerInput = ({ answer }: TProps) => {
             value={text}
             onChange={(t) => setText(t.target.value)}
           />
-          <Button className=" ml-auto block" onClick={() => setIsEdit(true)}>
+          <Button
+            className=" ml-auto block"
+            onClick={() => {
+              setIsEdit(true);
+              Morphologicalize({ text, setTokenizer: changeTokenizedTexts });
+              resetWikiInfo();
+            }}
+          >
             保存
           </Button>
         </>

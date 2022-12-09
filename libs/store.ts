@@ -1,8 +1,14 @@
 import create from 'zustand';
 import { IpadicFeatures } from '../types/Resolve';
+import { TWikiResponse } from '../types/Resolve';
 type MorphologicalStore = {
   tokenizedTexts: IpadicFeatures[];
   changeTokenizedTexts: (input: IpadicFeatures[]) => void;
+};
+type WikipediaStore = {
+  wikipediaInfo: TWikiResponse[];
+  changeWikiInfo: (wikiInfo: TWikiResponse[]) => void;
+  resetWikiInfo: () => void;
 };
 
 export const useMorphologicalStore = create<MorphologicalStore>((set) => ({
@@ -12,5 +18,18 @@ export const useMorphologicalStore = create<MorphologicalStore>((set) => ({
       return {
         tokenizedTexts: tokenized,
       };
+    }),
+}));
+
+export const useWikipediaStore = create<WikipediaStore>((set) => ({
+  wikipediaInfo: [],
+  changeWikiInfo: (wikiInfo: TWikiResponse[]) => {
+    set((wikis) => {
+      return { wikipediaInfo: [...wikis.wikipediaInfo, ...wikiInfo].reverse() };
+    });
+  },
+  resetWikiInfo: () =>
+    set((wikis) => {
+      return { wikipediaInfo: [] };
     }),
 }));
