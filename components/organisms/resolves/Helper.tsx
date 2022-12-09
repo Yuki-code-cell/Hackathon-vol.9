@@ -1,7 +1,11 @@
+import { useMorphologicalStore } from '../../../libs/store';
+
 type TProps = {
   className?: string;
 };
 export const Helper = ({ className }: TProps) => {
+  const { tokenizedTexts, changeTokenizedTexts } = useMorphologicalStore();
+  console.log(tokenizedTexts);
   const mocks = [
     {
       title: '形態素解析',
