@@ -8,6 +8,7 @@ type MorphologicalStore = {
 type WikipediaStore = {
   wikipediaInfo: TWikiResponse[];
   changeWikiInfo: (wikiInfo: TWikiResponse[]) => void;
+  resetWikiInfo: () => void;
 };
 
 export const useMorphologicalStore = create<MorphologicalStore>((set) => ({
@@ -27,4 +28,8 @@ export const useWikipediaStore = create<WikipediaStore>((set) => ({
       return { wikipediaInfo: [...wikis.wikipediaInfo, ...wikiInfo].reverse() };
     });
   },
+  resetWikiInfo: () =>
+    set((wikis) => {
+      return { wikipediaInfo: [] };
+    }),
 }));
