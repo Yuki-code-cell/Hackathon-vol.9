@@ -1,4 +1,4 @@
-import { TFaq } from '../../../types/Resolve';
+import { TFaq } from '../../../types/Faq';
 import { Faq } from './Faq';
 
 type TProps = {

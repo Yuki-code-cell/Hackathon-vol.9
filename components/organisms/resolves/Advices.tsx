@@ -1,4 +1,4 @@
-import { useMorphologicalStore } from '../../../libs/store';
+import { useMorphologicalStore } from '../../../stores/MorphologicalStore';
 import { Advice } from './Advice';
 
 type TProps = {

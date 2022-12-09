@@ -1,6 +1,4 @@
 export type { IpadicFeatures } from 'kuromoji';
-export type TFaq = { question: string; answer: string };
-// https://ja.wikipedia.org/?curid=${pageId}
 export type TWikiResponse = {
   ns: number;
   pageid: number;

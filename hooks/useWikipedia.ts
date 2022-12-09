@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useWikipediaStore } from '../libs/store';
-import { IpadicFeatures, TWikiResponse } from '../types/Resolve';
+import { useWikipediaStore } from '../stores/WikipediaStore';
+import { IpadicFeatures, TWikiResponse } from '../types/Wikipedia';
 type TProps = {
   inputValue: IpadicFeatures[];
 };

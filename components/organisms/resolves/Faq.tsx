@@ -1,5 +1,4 @@
-import React from 'react';
-import { TFaq } from '../../../types/Resolve';
+import { TFaq } from '../../../types/Faq';
 import { AnswerInput } from './AnswerInput';
 type TProps = {
   index: number;

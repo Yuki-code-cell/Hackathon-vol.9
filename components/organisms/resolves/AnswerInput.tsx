@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useMorphologicalStore } from '../../../stores/MorphologicalStore';
+import { useWikipediaStore } from '../../../stores/WikipediaStore';
 import { Morphologicalize } from '../../../util/morphologicalize';
-import { useMorphologicalStore, useWikipediaStore } from '../../../libs/store';
+
 import { Button } from '../../atoms/Button';
 type TProps = {
   answer: string;

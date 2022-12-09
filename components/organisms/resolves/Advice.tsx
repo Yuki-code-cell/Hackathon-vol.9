@@ -1,7 +1,8 @@
 import { IpadicFeatures } from 'kuromoji';
 import React from 'react';
 import { useWikipedia } from '../../../hooks/useWikipedia';
-import { useWikipediaStore } from '../../../libs/store';
+import { useWikipediaStore } from '../../../stores/WikipediaStore';
+
 import { WikiInfo } from './WikiInfo';
 type TProps = {
   tokenizedText: IpadicFeatures[];
