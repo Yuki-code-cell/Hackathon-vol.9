@@ -2,9 +2,18 @@ import { useRouter } from 'next/router';
 import { Faqs } from '../../../components/organisms/resolves/Faqs';
 import { Advices } from '../../../components/organisms/resolves/Advices';
 import { Pages } from '../../../components/shared/Pages';
+import { useQuery } from 'react-query';
+import { getQuestions } from '../../../apis/questions';
 const Resolve = () => {
   const router = useRouter();
   const { id } = router.query;
+  console.log(id);
+  const { data: questions, isLoading } = useQuery('questions', () =>
+    getQuestions({ flowId: id as string })
+  );
+  if (isLoading) {
+    return <div>Loading</div>;
+  }
   const mock = [
     {
       question: 'エラー文をそのまま調べましたか？',
@@ -30,7 +39,7 @@ const Resolve = () => {
   return (
     <Pages className="grid grid-cols-3 my-10">
       <Advices />
-      <Faqs faqs={mock} className="mx-5 col-span-2" />
+      <Faqs questions={questions ?? []} className="mx-5 col-span-2" />
     </Pages>
   );
 };

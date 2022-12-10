@@ -1,23 +1,16 @@
-import { TFaq } from '../../../types/Faq';
+import { TQuestion } from '../../../types/Question';
 import { Faq } from './Faq';
 
 type TProps = {
-  faqs: TFaq[];
+  questions: TQuestion[];
   className?: string;
 };
-export const Faqs = ({ faqs, className }: TProps) => {
+export const Faqs = ({ questions, className }: TProps) => {
   const faqColor = (ans: string) => (ans ? 'bg-green-300' : 'bg-red-300');
   return (
     <div className={`${className} bg-white rounded-md shadow-2xl border-4`}>
-      {faqs.map((faq, index) => {
-        return (
-          <Faq
-            index={index}
-            color={faqColor(faq.answer)}
-            faq={faq}
-            key={index}
-          />
-        );
+      {questions.map((question, index) => {
+        return <Faq index={index} question={question} key={index} />;
       })}
     </div>
   );

@@ -4,6 +4,7 @@ import { useWikipediaStore } from '../../../stores/WikipediaStore';
 import { Morphologicalize } from '../../../util/morphologicalize';
 
 import { Button } from '../../atoms/Button';
+import { TextArea } from '../../atoms/TextArea';
 type TProps = {
   answer: string;
 };
@@ -23,11 +24,7 @@ export const AnswerInput = ({ answer }: TProps) => {
         </p>
       ) : (
         <>
-          <textarea
-            className="w-full border-2 border-black rounded-md p-3 h-40"
-            value={text}
-            onChange={(t) => setText(t.target.value)}
-          />
+          <TextArea value={answer} onChange={setText} />
           <Button
             className=" ml-auto block"
             onClick={() => {
