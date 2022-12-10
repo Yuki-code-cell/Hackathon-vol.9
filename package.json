@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.1.3",
     "@types/kuromoji": "^0.1.1",
     "@types/node": "18.11.10",
     "@types/react-dom": "18.0.9",

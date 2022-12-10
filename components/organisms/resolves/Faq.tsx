@@ -1,18 +1,19 @@
-import React from 'react';
-import { TFaq } from '../../../types/Resolve';
+import { useEffect } from 'react';
+import { AnswersStore } from '../../../stores/AnswersStore';
+import { TQuestion } from '../../../types/Question';
 import { AnswerInput } from './AnswerInput';
 type TProps = {
   index: number;
-  color: string;
-  faq: TFaq;
+  question: TQuestion;
 };
-export const Faq = ({ index, color, faq }: TProps) => {
+export const Faq = ({ index, question }: TProps) => {
+  const { answers, changeAnswer, addAnswers, removeAnswers } = AnswersStore();
   return (
     <div key={index} className="flex place-items-start p-5 my-5">
-      <span className={`${color} rounded-md p-6 mx-2`}>{index + 1}</span>
+      <span className={`rounded-md p-6 mx-2`}>{index + 1}</span>
       <div className="w-full">
-        <p>Q. {faq.question}</p>
-        <AnswerInput answer={faq.answer} />
+        <p>Q. {question.question}</p>
+        <AnswerInput index={index} answers={answers} onChange={changeAnswer} />
       </div>
     </div>
   );
