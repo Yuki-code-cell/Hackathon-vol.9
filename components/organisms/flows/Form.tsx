@@ -21,13 +21,14 @@ export const Form = ({ userId }: TProps) => {
       <div className="text-center mt-8 mb-2">
         <Button
           className="px-20"
-          onClick={() =>
-            createFlow({
+          onClick={async () =>
+            await createFlow({
               userId: userId as string,
               title: formTitle,
               description: formDescription,
-            }).then(() => {
-              router.push('/');
+            }).then((res) => {
+              console.log(res);
+              router.push(`/resolves/${res ? res[0].id : ''}/question/new`);
             })
           }
         >
