@@ -10,35 +10,38 @@ console.log(DataArray[0][0]);
 console.log(DataArray[1][0]);
 console.log(DataArray[2][0]);
 
-// [
-//   {
-//     "theme": "template1",
-//     "description": "templateの一番目です",
-//     "faq": [
-//       {
-//         "question": "一番目の質問です",
-//         "answer": ""
-//       }
-//     ]
-//   },
-//   {
-//     "theme": "template2",
-//     "description": "templateの一番目です",
-//     "faq": [
-//       {
-//         "question": "一番目の質問です",
-//         "answer": ""
-//       }
-//     ]
-//   },
-//   {
-//     "theme": "template3",
-//     "description": "templateの一番目です",
-//     "faq": [
-//       {
-//         "question": "一番目の質問です",
-//         "answer": ""
-//       }
-//     ]
-//   }
-// ]
+const dataList =
+[
+  {
+    "theme": "template1",
+    "description": "templateの一番目です",
+    "faq": [
+      {
+        "question": "一番目の質問です",
+        "answer": ""
+      }
+    ]
+  },
+  {
+    "theme": "template2",
+    "description": "templateの一番目です",
+    "faq": [
+      {
+        "question": "一番目の質問です",
+        "answer": ""
+      }
+    ]
+  },
+  {
+    "theme": "template3",
+    "description": "templateの一番目です",
+    "faq": [
+      {
+        "question": "一番目の質問です",
+        "answer": ""
+      }
+    ]
+  }
+];
+
+export default dataList;
