@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
-import { EditForm } from '../../../components/organisms/flows/EditForm';
+import { EditFlows } from '../../../components/organisms/flows/EditFlows';
+import { EditQuestions } from '../../../components/organisms/questions/EditQuestions';
 import { Pages } from '../../../components/shared/Pages';
 const Edit = () => {
   const router = useRouter();
   const { id } = router.query;
   return (
     <Pages>
-      <EditForm id={id as string} />
+      <EditFlows id={id as string} />
+      {/* <EditQuestions flowId={id as string} /> */}
     </Pages>
   );
 };

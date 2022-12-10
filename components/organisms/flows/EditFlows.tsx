@@ -10,7 +10,7 @@ import { Input } from '../../atoms/Input';
 type TProps = {
   id: string;
 };
-export const EditForm = ({ id }: TProps) => {
+export const EditFlows = ({ id }: TProps) => {
   const router = useRouter();
   const { data, isLoading } = useQuery('flow', () => getFlow({ id: id }));
   const [formTitle, setFormTitle] = useState('');

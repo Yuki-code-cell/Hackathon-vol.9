@@ -5,7 +5,7 @@ type TProps = {
 };
 export const Input = ({ name, content, onChange }: TProps) => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center my-5">
       <label
         htmlFor={name}
         className="mr-2 p-2 bg-yellow-400 rounded-md flex items-center"
