@@ -1,8 +1,11 @@
 import { supabase } from '../../libs/supabase';
+import { TMyFlow } from '../../types/MyFlow';
 type TProps = {
   userId: string;
 };
-export const getFlow = async ({ userId }: TProps) => {
+export const getFlow = async ({
+  userId,
+}: TProps): Promise<TMyFlow[] | null> => {
   const { data } = await supabase
     .from('flows')
     .select('*')
