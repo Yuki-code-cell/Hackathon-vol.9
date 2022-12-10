@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
+import { deleteFlow } from '../../../apis/flows/delete';
 import { getFlow } from '../../../apis/flows/show';
 import { updateFlow } from '../../../apis/flows/update';
 import { Button } from '../../atoms/Button';
@@ -43,7 +44,19 @@ export const EditForm = ({ id }: TProps) => {
             });
           }}
         >
-          作成
+          更新
+        </Button>
+      </div>
+      <div className="text-center">
+        <Button
+          className="px-20"
+          onClick={() => {
+            deleteFlow({ flowId: id }).then(() => {
+              router.push('/');
+            });
+          }}
+        >
+          削除
         </Button>
       </div>
     </div>
