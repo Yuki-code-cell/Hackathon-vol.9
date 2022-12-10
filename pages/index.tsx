@@ -1,5 +1,6 @@
 import { Pages } from '../components/shared/Pages';
 import { TemplateData } from '../public/data/templates';
+import { Hooks } from '../hooks/useQiita';
 
 const array = [
   { a: 1, b: 2},
