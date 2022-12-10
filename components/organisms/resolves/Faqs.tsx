@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { AnswersStore } from '../../../stores/AnswersStore';
 import { TQuestion } from '../../../types/Question';
 import { Faq } from './Faq';
 

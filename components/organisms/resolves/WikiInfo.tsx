@@ -5,7 +5,6 @@ type TProps = {
   content: string;
 };
 export const WikiInfo = ({ id, title, content }: TProps) => {
-  console.log(id);
   return (
     <div className="text-left bg-white rounded-md border-2 shadow-2xl mb-5 mx-5 p-5">
       <a

@@ -13,7 +13,6 @@ type TProps = {
 export const EditForm = ({ id }: TProps) => {
   const router = useRouter();
   const { data, isLoading } = useQuery('flow', () => getFlow({ id: id }));
-  console.log(data);
   const [formTitle, setFormTitle] = useState('');
   const [formDescription, setFormDescription] = useState('');
   useEffect(() => {
