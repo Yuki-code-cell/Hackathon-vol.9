@@ -1,15 +1,13 @@
 import { supabase } from '../../libs/supabase';
 import { TMyFlow } from '../../types/MyFlow';
 type TProps = {
-  userId: string;
+  id: string;
 };
-export const getFlow = async ({
-  userId,
-}: TProps): Promise<TMyFlow[] | null> => {
+export const getFlow = async ({ id }: TProps): Promise<TMyFlow[] | null> => {
   const { data } = await supabase
     .from('flows')
     .select('*')
-    .eq('user_id', userId)
+    .eq('id', id)
     .then((res) => {
       return res;
     });
