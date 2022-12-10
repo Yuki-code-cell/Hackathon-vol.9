@@ -1,13 +1,14 @@
 import { Pages } from '../components/shared/Pages';
 import { TemplateData } from '../public/data/templates';
+import { Hooks } from '../hooks/useQiita';
 
 const array = [
   { a: 1, b: 2},
 ];
 
-const Array = array.map({template, index} => {
-  console.log('resolves/${index}');
-});
+// const Array = array.map({template, index} => {
+//   console.log('resolves/${index}');
+// });
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <div className="my-20 lg:mx-16 mx-8">
         <h2 className="text-2xl font-semibold p-5">テンプレート一覧</h2>
         <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-5">
-          {[0, 1, 2, 3, 4, 5].map((v, i) => {
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ].map((v, i) => {
             return (
               <div
                 key={v}
