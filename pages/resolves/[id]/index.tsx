@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
-import { Faqs } from '../../components/organisms/resolves/Faqs';
-import { Advices } from '../../components/organisms/resolves/Advices';
-import { Pages } from '../../components/shared/Pages';
+import { Faqs } from '../../../components/organisms/resolves/Faqs';
+import { Advices } from '../../../components/organisms/resolves/Advices';
+import { Pages } from '../../../components/shared/Pages';
 const Resolve = () => {
   const router = useRouter();
   const { id } = router.query;
