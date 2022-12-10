@@ -16,7 +16,7 @@ const Resolve = () => {
   // fetchしてきたデータ分stateにobjectを追加していく
   useEffect(() => {
     questions?.map((_, index) => {
-      addAnswers({ index: index, text: 'aaa' });
+      addAnswers({ index: index, text: '' });
     });
   }, [questions]);
   if (isLoading) {

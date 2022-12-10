@@ -34,7 +34,7 @@ export const AnswersStore = create<AnswersStore>((set) => ({
       };
     });
   },
-  //   重複するobjectを消してから新しい値をpushし、値をsortして返す
+
   changeAnswer: ({ index, text }) => {
     set((state) => {
       return {

@@ -8,6 +8,7 @@ export const getQuestions = async ({ flowId }: TProps) => {
     .from('questions')
     .select('*')
     .eq('flow_id', flowId)
+    .order('order', { ascending: true })
     .then((res) => {
       return res;
     });
