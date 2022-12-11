@@ -21,7 +21,7 @@ export const MyFlows = ({ userId }: TProps) => {
         <LinkTo href="resolves/new">作成する</LinkTo>
       </div>
 
-      <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-5">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5">
         {myFlows?.map((flow) => {
           return (
             <MyFlow

@@ -14,7 +14,7 @@ export default function Home() {
     <Pages>
       <div className="my-20 lg:mx-16 mx-8">
         <h2 className="text-2xl font-semibold p-5">テンプレート一覧</h2>
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-5">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-5">
           {TemplateData.map((v, i) => {
             return (
               <div
