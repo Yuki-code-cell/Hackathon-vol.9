@@ -52,7 +52,7 @@ export const Form = ({ flowId }: TProps) => {
               <div className="flex items-center">
                 <textarea
                   value={q.question}
-                  className=" border-2 border-black rounded-md p-3 h-16"
+                  className=" border-2 border-black rounded-md p-3 h-16 lg:w-80"
                   onChange={(e) => {
                     changeQuestion({
                       flowId: flowId as string,
