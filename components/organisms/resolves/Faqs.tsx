@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { AnswersStore } from '../../../stores/AnswersStore';
+import React from 'react';
 import { TQuestion } from '../../../types/Question';
 import { Faq } from './Faq';
 
@@ -7,8 +6,8 @@ type TProps = {
   questions: TQuestion[];
   className?: string;
 };
-export const Faqs = ({ questions, className }: TProps) => {
-  const faqColor = (ans: string) => (ans ? 'bg-green-300' : 'bg-red-300');
+export const Faqs = React.memo(({ questions, className }: TProps) => {
+  console.log('Faqs');
   return (
     <div className={`${className} bg-white rounded-md shadow-2xl border-4`}>
       {questions.map((question, index) => {
@@ -16,4 +15,5 @@ export const Faqs = ({ questions, className }: TProps) => {
       })}
     </div>
   );
-};
+});
+Faqs.displayName = 'Faqs';
